@@ -247,8 +247,21 @@ function demo_theme_handle_contact_form()
         exit;
     }
 
-    // 4. Przetworzenie danych (w rzeczywistym projekcie tu wywołalibyśmy wp_mail())
-    // wp_mail( get_option('admin_email'), 'Nowa wiadomość od ' . $name, $message );
+    // 4. Przetworzenie danych (wysyłka maila)
+    $to = get_option('admin_email');
+    $subject = 'Nowa wiadomość ze strony kontaktowej od ' . $name;
+
+    $body = "Masz nową wiadomość z formularza kontaktowego:\n\n";
+    $body .= "Imię i nazwisko: " . $name . "\n";
+    $body .= "Email: " . $email . "\n\n";
+    $body .= "Treść:\n" . $message . "\n";
+
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'Reply-To: ' . $name . ' <' . $email . '>'
+    );
+
+    wp_mail($to, $subject, $body, $headers);
 
     // 5. Przekierowanie HTTP 302 powrotne po sukcesie (Wzorzec Post/Redirect/Get - zapobiega ponownemu wysłaniu formularza po odświeżeniu)
     wp_redirect(add_query_arg('contact_status', 'success', wp_get_referer()));
