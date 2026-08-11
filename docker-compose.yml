@@ -49,6 +49,16 @@ services:
     networks:
       - wordpress_network
 
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: all_in_one_migration_wp_mailpit
+    restart: unless-stopped
+    ports:
+      - "8025:8025" # Panel WWW do oglądania maili
+      - "1025:1025" # Port SMTP do wysyłania
+    networks:
+      - wordpress_network
+
 volumes:
   db_data:
   wp_data:
