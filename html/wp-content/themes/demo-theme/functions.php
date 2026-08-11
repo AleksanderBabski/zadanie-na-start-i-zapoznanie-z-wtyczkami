@@ -67,6 +67,13 @@ function demo_theme_enqueue_styles()
         $theme_version
     );
 
+    wp_enqueue_style(
+        'demo-theme-acf-taksonomie',
+        $theme_uri . '/css/acf-taksonomie.css',
+        array('demo-theme-base', 'demo-theme-components'),
+        $theme_version
+    );
+
     // Podpięcie skryptu do nawigacji mobilnej
     wp_enqueue_script(
         'demo-theme-navigation',
