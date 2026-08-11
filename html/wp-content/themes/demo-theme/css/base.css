@@ -72,10 +72,17 @@ body.admin-bar {
 }
 
 .content-container {
-  margin: 20px;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 40px auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .content-container {
+    margin: 60px auto;
+  }
 }
 
 /* Layout strony głównej */

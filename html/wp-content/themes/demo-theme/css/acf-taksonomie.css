@@ -1,9 +1,7 @@
 /* Styling for Films / Taxonomies Page */
 
 .filmy-container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
+  /* Inherits layout properties from .content-container */
 }
 
 .filmy-page-title {

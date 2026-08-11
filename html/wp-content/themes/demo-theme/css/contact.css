@@ -1,6 +1,5 @@
 /* formularz kontaktowy */
 .contact-grid {
-  margin: 0px 20px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
