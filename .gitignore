@@ -1,0 +1,29 @@
+# Ignoruj pliki lokalnego środowiska (zawierające hasła)
+.env
+
+# Ignoruj rdzeń WordPressa
+/html/wp-admin/
+/html/wp-includes/
+/html/*.php
+/html/*.txt
+/html/*.html
+/html/.htaccess
+
+# Ignoruj domyślne motywy WordPressa
+/html/wp-content/themes/twentytwentythree/
+/html/wp-content/themes/twentytwentyfour/
+/html/wp-content/themes/twentytwentyfive/
+/html/wp-content/themes/index.php
+
+# Ignoruj wszystkie wtyczki WordPressa
+/html/wp-content/plugins/
+
+# Ignoruj media, języki i pliki tymczasowe
+/html/wp-content/uploads/
+/html/wp-content/upgrade/
+/html/wp-content/cache/
+/html/wp-content/languages/
+
+# Systemowe pliki tymczasowe
+.DS_Store
+Thumbs.db
