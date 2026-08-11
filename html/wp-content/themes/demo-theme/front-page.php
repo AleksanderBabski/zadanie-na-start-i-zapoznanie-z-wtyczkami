@@ -36,10 +36,10 @@
                         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
                         <?php if ($terms && !is_wp_error($terms)): ?>
-                            <div class="project-tags">
+                            <div class="tech-list">
                                 <strong>Technologie:</strong>
                                 <?php foreach ($terms as $term): ?>
-                                    <span class="tag"><?php echo esc_html($term->name); ?></span>
+                                    <span class="tech-item"><?php echo esc_html($term->name); ?></span>
                                     <?php //esc_html - funkcja zabezpieczająca przed wstrzykiwaniem kodu XSS (Cross-Site Scripting),
                                                     ?>
                                 <?php endforeach; ?>

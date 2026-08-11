@@ -4,6 +4,11 @@
   max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .blog-page-title {
@@ -18,6 +23,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
+  flex-grow: 1;
 }
 
 @media (min-width: 768px) {
@@ -102,14 +108,22 @@
 }
 
 .read-more-btn {
-  color: #2563eb;
+  display: inline-block;
+  background-color: var(--primary-color, #0073aa);
+  color: #ffffff;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
+  transition: background-color 0.2s ease;
   font-size: 14px;
+  line-height: 1.2;
 }
 
 .read-more-btn:hover {
-  text-decoration: underline;
+  background-color: #005177;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* Pagination */
@@ -118,7 +132,9 @@
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 40px;
+  margin-top: auto;
+  padding-top: 40px;
+  padding-bottom: 20px;
 }
 
 .blog-pagination .page-numbers {
@@ -126,7 +142,7 @@
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 6px;
-  color: #0f172a;
+  color: var(--text-color, #333333);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s;
@@ -134,9 +150,14 @@
 
 .blog-pagination .page-numbers:hover,
 .blog-pagination .page-numbers.current {
-  background: #2563eb;
-  border-color: #2563eb;
+  background: var(--primary-color, #0073aa);
+  border-color: var(--primary-color, #0073aa);
   color: #ffffff;
+}
+
+.blog-pagination .page-numbers:hover {
+  background: #005177;
+  border-color: #005177;
 }
 
 .no-posts {
