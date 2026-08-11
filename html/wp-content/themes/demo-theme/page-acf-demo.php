@@ -12,7 +12,7 @@ if (empty($kolor_tekstu)) {
 <main id="primary" class="site-main acf-demo-page" style="--acf-custom-color: <?php echo esc_attr($kolor_tekstu); ?>;">
     <article class="acf-demo-card">
 
-        <h1 class="acf-demo-title">Przykład wykorzystania ACF PRO</h1>
+        <h1 class="acf-demo-title">ACF wybór płci i koloru</h1>
         <hr class="acf-demo-divider">
         <div class="user-info-box">
             <h2 class="user-info-title">Dane z wtyczki ACF:</h2>

@@ -74,6 +74,13 @@ function demo_theme_enqueue_styles()
         $theme_version
     );
 
+    wp_enqueue_style(
+        'demo-theme-blog',
+        $theme_uri . '/css/blog.css',
+        array('demo-theme-base', 'demo-theme-components'),
+        $theme_version
+    );
+
     // Podpięcie skryptu do nawigacji mobilnej
     wp_enqueue_script(
         'demo-theme-navigation',
@@ -230,24 +237,33 @@ add_action('after_setup_theme', 'demo_theme_register_menus');
 
 function demo_theme_handle_contact_form()
 {
-    // 1. Weryfikacja klucza bezpieczeństwa Nonce (zabezpieczenie przed CSRF)
-    if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'contact_form_submit')) {
-        wp_die('Błąd bezpieczeństwa! Nieprawidłowy żeton nonce.');
+    // 1. Sprawdzenie metody żądania (tylko POST)
+    if ('POST' !== $_SERVER['REQUEST_METHOD']) {
+        wp_die('Niedozwolona metoda żądania.', 'Błąd', array('response' => 405));
     }
 
-    // 2. Pobranie i SANITYZACJA danych z $_POST (Ochrona przed XSS i SQL Injection)
+    // 2. Weryfikacja klucza bezpieczeństwa Nonce (zabezpieczenie przed CSRF)
+    if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'contact_form_submit')) {
+        wp_die('Błąd bezpieczeństwa! Nieprawidłowy żeton nonce.', 'Błąd', array('response' => 403));
+    }
+
+    // 3. Pobranie i SANITYZACJA danych z $_POST (Ochrona przed XSS i SQL Injection)
     $name = isset($_POST['contact_name']) ? sanitize_text_field($_POST['contact_name']) : '';
     $email = isset($_POST['contact_email']) ? sanitize_email($_POST['contact_email']) : '';
     $message = isset($_POST['contact_message']) ? sanitize_textarea_field($_POST['contact_message']) : '';
 
-    // 3. Walidacja danych
+    // Bezpieczny URL powrotny (referujący)
+    $referer = wp_get_referer();
+    $redirect_url = $referer ? $referer : home_url('/');
+
+    // 4. Walidacja danych
     if (empty($name) || empty($email) || !is_email($email) || empty($message)) {
         // Przekierowanie powrotne z informacją o błędzie
-        wp_redirect(add_query_arg('contact_status', 'error', wp_get_referer()));
+        wp_safe_redirect(add_query_arg('contact_status', 'error', $redirect_url));
         exit;
     }
 
-    // 4. Przetworzenie danych (wysyłka maila)
+    // 5. Przetworzenie danych (wysyłka maila)
     $to = get_option('admin_email');
     $subject = 'Nowa wiadomość ze strony kontaktowej od ' . $name;
 
@@ -263,8 +279,8 @@ function demo_theme_handle_contact_form()
 
     wp_mail($to, $subject, $body, $headers);
 
-    // 5. Przekierowanie HTTP 302 powrotne po sukcesie (Wzorzec Post/Redirect/Get - zapobiega ponownemu wysłaniu formularza po odświeżeniu)
-    wp_redirect(add_query_arg('contact_status', 'success', wp_get_referer()));
+    // 6. Przekierowanie HTTP 302 powrotne po sukcesie (Wzorzec Post/Redirect/Get - zapobiega ponownemu wysłaniu formularza po odświeżeniu)
+    wp_safe_redirect(add_query_arg('contact_status', 'success', $redirect_url));
     exit;
 }
 
