@@ -1,12 +1,15 @@
 <?php
 get_header();
 
-$plec = get_field('plec');
+$plec        = get_field('plec');
 $kolor_tekstu = get_field('kolor_tekstu');
 
 if (empty($kolor_tekstu)) {
     $kolor_tekstu = '#1e293b';
 }
+
+// Normalizacja wartości płci do porównania (bez rozróżniania wielkości liter)
+$plec_normalized = strtolower((string) $plec);
 ?>
 
 <main id="primary" class="site-main acf-demo-page" style="--acf-custom-color: <?php echo esc_attr($kolor_tekstu); ?>;">
@@ -31,11 +34,11 @@ if (empty($kolor_tekstu)) {
         <div class="gender-notice">
             <h3 class="gender-notice-title">Dedykowany komunikat:</h3>
 
-            <?php if ($plec === 'Kobieta' || $plec === 'kobieta'): ?>
+            <?php if ($plec_normalized === 'kobieta'): ?>
                 <p class="gender-message">
                     Witaj! Przygotowaliśmy dla Ciebie dedykowaną ofertę dla Kobiet.
                 </p>
-            <?php elseif ($plec === 'Mężczyzna' || $plec === 'mezczyzna'): ?>
+            <?php elseif ($plec_normalized === 'mężczyzna' || $plec_normalized === 'mezczyzna'): ?>
                 <p class="gender-message">
                     Witaj! Sprawdź nasz dedykowany panel dla Mężczyzn.
                 </p>

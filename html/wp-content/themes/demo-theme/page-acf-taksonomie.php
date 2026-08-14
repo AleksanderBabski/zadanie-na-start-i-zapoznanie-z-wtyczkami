@@ -35,14 +35,14 @@
                             <?php if ($aktorzy && !is_wp_error($aktorzy)) : ?>
                                 <div class="film-taxonomy-item">
                                     <span class="film-taxonomy-label">Aktorzy: </span>
-                                    <span class="film-taxonomy-values"><?php echo $aktorzy; ?></span>
+                                    <span class="film-taxonomy-values"><?php echo wp_kses_post($aktorzy); ?></span>
                                 </div>
                             <?php endif; ?>
 
                             <?php if ($jezyki && !is_wp_error($jezyki)) : ?>
                                 <div class="film-taxonomy-item">
                                     <span class="film-taxonomy-label">Języki: </span>
-                                    <span class="film-taxonomy-values"><?php echo $jezyki; ?></span>
+                                    <span class="film-taxonomy-values"><?php echo wp_kses_post($jezyki); ?></span>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -62,5 +62,4 @@
     </div>
 </main>
 
-<?php
-get_footer();
+<?php get_footer(); ?>
