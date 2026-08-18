@@ -1,8 +1,14 @@
 <?php
+/**
+ * Template Name: ACF Demo (Płeć i kolory)
+ *
+ * @package Demo_Theme
+ */
+
 get_header();
 
-$plec        = get_field('plec');
-$kolor_tekstu = get_field('kolor_tekstu');
+$plec = function_exists('get_field') ? get_field('plec') : get_post_meta(get_the_ID(), 'plec', true);
+$kolor_tekstu = function_exists('get_field') ? get_field('kolor_tekstu') : get_post_meta(get_the_ID(), 'kolor_tekstu', true);
 
 if (empty($kolor_tekstu)) {
     $kolor_tekstu = '#1e293b';

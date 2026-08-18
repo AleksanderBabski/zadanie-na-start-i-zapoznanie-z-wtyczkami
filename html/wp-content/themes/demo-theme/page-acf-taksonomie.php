@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template Name: ACF Taksonomie (Filmy)
+ *
+ * @package Demo_Theme
+ */
+
+get_header(); ?>
 
 <div class="content-container filmy-container">
     <h1 class="filmy-page-title">Lista Filmów</h1>

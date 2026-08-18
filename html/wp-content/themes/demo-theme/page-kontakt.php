@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template Name: Formularz Kontaktowy
+ *
+ * @package Demo_Theme
+ */
+
+get_header(); ?>
 
 <div class="content-container contact-page-container">
     <h1><?php the_title(); ?></h1>
