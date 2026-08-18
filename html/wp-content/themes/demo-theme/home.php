@@ -4,7 +4,7 @@
  */
 get_header(); ?>
 
-<main id="primary" class="site-main blog-container">
+<div class="blog-container">
     <h1 class="blog-page-title"><?php single_post_title(); ?></h1>
 
     <div class="blog-grid">
@@ -60,7 +60,7 @@ get_header(); ?>
         endif;
         ?>
     </div>
-</main>
+</div>
 
 <?php
 get_footer();

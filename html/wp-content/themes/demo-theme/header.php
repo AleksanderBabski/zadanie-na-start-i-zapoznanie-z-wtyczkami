@@ -17,7 +17,7 @@
     <meta name="description" content="<?php echo esc_attr($seo_description); ?>">
 
     <!-- Open Graph Protocol (Meta dane dla social media) -->
-    <meta property="og:title" content="<?php wp_title('|', true, 'right'); ?>">
+    <meta property="og:title" content="<?php echo esc_attr(wp_get_document_title()); ?>">
     <meta property="og:description" content="<?php echo esc_attr($seo_description); ?>">
     <meta property="og:type" content="<?php echo is_single() ? 'article' : 'website'; ?>">
     <meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>">

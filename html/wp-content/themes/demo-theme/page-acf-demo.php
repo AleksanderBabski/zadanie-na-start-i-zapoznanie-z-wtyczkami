@@ -12,7 +12,7 @@ if (empty($kolor_tekstu)) {
 $plec_normalized = strtolower((string) $plec);
 ?>
 
-<main id="primary" class="site-main acf-demo-page" style="--acf-custom-color: <?php echo esc_attr($kolor_tekstu); ?>;">
+<div class="content-container acf-demo-page" style="--acf-custom-color: <?php echo esc_attr($kolor_tekstu); ?>;">
     <article class="acf-demo-card">
 
         <h1 class="acf-demo-title">ACF wybór płci i koloru</h1>
@@ -50,7 +50,7 @@ $plec_normalized = strtolower((string) $plec);
         </div>
 
     </article>
-</main>
+</div>
 
 <?php
 get_footer();
