@@ -107,7 +107,7 @@ function demo_theme_enqueue_styles()
     }
 
     // Styl dla strony dynamicznej odmiany tekstu wg płci (Placeholders)
-    if (is_page('odmiana-tekstu') || is_page_template('page-gender-text.php')) {
+    if (is_page('odmiana-tekstu') || is_page_template('page-gender-text-regex.php')) {
         wp_enqueue_style(
             'demo-theme-gender-text',
             $theme_uri . '/css/gender-text.css',

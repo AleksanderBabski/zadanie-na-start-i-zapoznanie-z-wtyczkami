@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Odmiana końcówek słów
+ * Template Name: Odmiana końcówek słów Regex
  *
  * @package Demo_Theme
  */
