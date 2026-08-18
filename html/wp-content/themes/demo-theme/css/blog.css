@@ -168,3 +168,126 @@
   border-radius: 8px;
   color: #64748b;
 }
+
+/* Single Blog Post Styles */
+.single-post-container {
+  max-width: 860px;
+}
+
+.single-post-article {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.single-post-header {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 20px;
+}
+
+.single-post-meta {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.single-post-categories a {
+  color: var(--primary-color, #0073aa);
+  text-decoration: none;
+}
+
+.single-post-categories a:hover {
+  text-decoration: underline;
+}
+
+.single-post-title {
+  font-size: 32px;
+  line-height: 1.25;
+  color: #0f172a;
+  margin: 10px 0;
+}
+
+.single-post-author {
+  font-size: 14px;
+  color: #475569;
+}
+
+.single-post-thumbnail {
+  margin-bottom: 28px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.single-post-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.single-post-content {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #334155;
+}
+
+.single-post-content p {
+  margin-bottom: 1.5em;
+}
+
+.single-post-footer {
+  margin-top: 40px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 24px;
+}
+
+.single-post-tags {
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.single-post-tags a {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: 4px;
+  font-size: 13px;
+}
+
+.single-post-navigation {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.single-post-navigation .nav-links {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  gap: 20px;
+}
+
+.single-post-navigation .nav-previous {
+  margin-right: auto;
+}
+
+.single-post-navigation .nav-next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.single-post-navigation a {
+  display: inline-block;
+  color: var(--primary-color, #0073aa);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.single-post-navigation a:hover {
+  text-decoration: underline;
+}
