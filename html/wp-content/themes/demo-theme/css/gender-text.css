@@ -1,0 +1,228 @@
+/* Gender Text Inflection Demo Styles */
+
+.gender-demo-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.gender-demo-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.gender-demo-title {
+  font-size: 32px;
+  color: var(--secondary-color, #2c3e50);
+  margin-bottom: 8px;
+}
+
+.gender-demo-subtitle {
+  font-size: 16px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Kafelki wyboru płci */
+.gender-selector-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.gender-selector-heading {
+  font-size: 18px;
+  color: var(--secondary-color, #2c3e50);
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.gender-btn-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .gender-btn-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gender-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 16px;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  font-family: inherit;
+}
+
+.gender-btn:hover {
+  background: #ffffff;
+  border-color: #94a3b8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+}
+
+/* Aktywny stan dla Mężczyzny (Primary - Niebieski) */
+.gender-btn[data-gender="m"].active {
+  background: #f0f7fb;
+  border-color: var(--primary-color, #0073aa);
+  box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.2);
+}
+
+.gender-btn[data-gender="m"].active .gender-label {
+  color: var(--primary-color, #0073aa);
+}
+
+.gender-btn[data-gender="m"].active .gender-tag {
+  background: #e0f0f8;
+  color: var(--primary-color, #0073aa);
+  border-color: #bae0f2;
+}
+
+/* Aktywny stan dla Kobiety (Accent - Fiolet / Amarant) */
+.gender-btn[data-gender="f"].active {
+  background: #fbf0f6;
+  border-color: var(--accent-color, #9F2B68);
+  box-shadow: 0 0 0 2px rgba(159, 43, 104, 0.2);
+}
+
+.gender-btn[data-gender="f"].active .gender-label {
+  color: var(--accent-color, #9F2B68);
+}
+
+.gender-btn[data-gender="f"].active .gender-tag {
+  background: #f6deec;
+  color: var(--accent-color, #9F2B68);
+  border-color: #ecc0dc;
+}
+
+.gender-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.gender-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--secondary-color, #2c3e50);
+  margin-bottom: 4px;
+}
+
+.gender-tag {
+  font-size: 12px;
+  color: #64748b;
+  background: #ffffff;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Karta z wyrenderowanym tekstem */
+.gender-content-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.gender-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gender-content-title {
+  font-size: 20px;
+  color: var(--secondary-color, #2c3e50);
+  margin: 0;
+}
+
+.active-gender-badge {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-color, #0073aa);
+  background: #f0f7fb;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid #bae0f2;
+}
+
+.active-gender-badge[data-current-gender="f"] {
+  background: #fbf0f6;
+  color: var(--accent-color, #9F2B68);
+  border-color: #ecc0dc;
+}
+
+.gender-rendered-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--secondary-color, #2c3e50);
+}
+
+.gender-rendered-text p {
+  margin-bottom: 1.25em;
+}
+
+.gender-rendered-text p:last-child {
+  margin-bottom: 0;
+}
+
+.gender-dynamic-word {
+  display: inline-block;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.gender-rendered-text .gender-dynamic-word,
+.gender-rendered-text[data-active-gender="m"] .gender-dynamic-word {
+  color: var(--primary-color, #0073aa);
+  background-color: #f0f7fb;
+  border: 1px solid #bae0f2;
+}
+
+.gender-rendered-text[data-active-gender="f"] .gender-dynamic-word {
+  color: var(--accent-color, #9F2B68);
+  background-color: #fbf0f6;
+  border: 1px solid #ecc0dc;
+}
+
+@keyframes wordPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.gender-dynamic-word.word-changed {
+  animation: wordPulse 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}

@@ -106,6 +106,24 @@ function demo_theme_enqueue_styles()
         );
     }
 
+    // Styl dla strony dynamicznej odmiany tekstu wg płci (Placeholders)
+    if (is_page('odmiana-tekstu') || is_page_template('page-gender-text.php')) {
+        wp_enqueue_style(
+            'demo-theme-gender-text',
+            $theme_uri . '/css/gender-text.css',
+            array('demo-theme-base', 'demo-theme-components'),
+            filemtime($theme_dir . '/css/gender-text.css')
+        );
+
+        wp_enqueue_script(
+            'demo-theme-gender-text',
+            $theme_uri . '/js/gender-text.js',
+            array(),
+            filemtime($theme_dir . '/js/gender-text.js'),
+            true
+        );
+    }
+
     // 4. Skrypt do nawigacji mobilnej (w stopce)
     wp_enqueue_script(
         'demo-theme-navigation',

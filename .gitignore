@@ -27,3 +27,6 @@
 # Systemowe pliki tymczasowe
 .DS_Store
 Thumbs.db
+
+# Ignoruj plan_odmiana.md
+plan_odmiana.md

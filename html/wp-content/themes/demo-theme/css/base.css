@@ -1,6 +1,8 @@
 :root {
   --primary-color: var(--wp--preset--color--primary, #0073aa);
-  --text-color: var(--wp--preset--color--secondary, #333333);
+  --secondary-color: var(--wp--preset--color--secondary, #2c3e50);
+  --accent-color: var(--wp--preset--color--accent, #9F2B68);
+  --text-color: var(--wp--preset--color--secondary, #2c3e50);
 }
 
 body {
